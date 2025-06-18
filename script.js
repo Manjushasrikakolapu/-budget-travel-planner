@@ -149,7 +149,7 @@ const destinations = [
       Chennai: 10000,
       Pune: 12000
     },
-    image: "images/chikmagalur.jpg",
+    image: "chikmagalur.jpg",
     hotel: "Coffee Estate Stay",
     restaurant: "Town Canteen",
     hotelCost: 3000,
