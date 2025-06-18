@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Budget Travel Planner</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .hero {
+      background: url('images/hero-bg.jpg') center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* overlay */
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(199, 192, 192, 0.7);
+    }
+
+    .input-section {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    select,
+    input[type="number"],
+    button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    select,
+    input[type="number"] {
+      width: 200px;
+    }
+
+    button {
+      background-color: #4f46e5;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4338ca;
+    }
+
+    .show-all {
+      background-color: #059669;
+    }
+
+    .show-all:hover {
+      background-color: #047857;
+    }
+
+    .results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+      background: #f3f4f6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fullscreen Hero Section with Transparent Inputs -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Budget Travel Planner</h1>
+      <div class="input-section">
+        <select id="cityInput">
+          <option value="">-- Select Your City --</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Pune">Pune</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Jaipur">Jaipur</option>
+          <option value="Kochi">Kochi</option>
+          <option value="Nagpur">Nagpur</option>
+          <option value="Visakhapatnam">Visakhapatnam</option>
+          <option value="Vijayawada">Vijayawada</option>
+          <option value="Goa">Goa</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Mangalore">Mangalore</option>
+        </select>
+
+        <input type="number" id="budgetInput" placeholder="Enter your budget (₹)" />
+        <input type="number" id="daysInput" placeholder="Enter number of days" min="1" />
+
+        <select id="typeInput">
+          <option value="">-- Select Trip Type --</option>
+          <option value="Beach">Beach</option>
+          <option value="Hill">Hill</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Relaxing">Relaxing</option>
+        </select>
+
+        <select id="groupInput">
+          <option value="">-- Trip With --</option>
+          <option value="Solo">Solo</option>
+          <option value="Friends">Friends</option>
+          <option value="Family">Family</option>
+        </select>
+
+        <button onclick="findPlaces()">Find Places</button>
+        <button onclick="showAllTrips()" class="show-all">Show All Trips</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <div id="results" class="results"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
